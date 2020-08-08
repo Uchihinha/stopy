@@ -2,9 +2,6 @@
 
 Robô que aprende e joga **[Stop]** desenvolvido em Python com conceitos básicos de IA com fins de aprendizado.
 
-With `--why`, Size Limit can tell you _why_ your library is of this size
-and show the real cost of all your internal dependencies.
-
 [stop]: https://stopots.com/pt/
 
 ## Dependências
