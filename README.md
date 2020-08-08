@@ -30,4 +30,4 @@ O modelo do banco de dados esperado pelo robô está no arquivo `migrations.sql`
 
 ## Execução
 
-Para rodar o robô, basta entrar no diretório do projeto e executar o comando `python3 main.py`.
+Para rodar o robô, basta entrar no diretório do projeto e executar o comando `python3 main.py` ou `python main.py` ou `py main.py`, variando de acordo com a versão do seu Python.
