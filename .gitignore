@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 .google-cookie
+search.py
