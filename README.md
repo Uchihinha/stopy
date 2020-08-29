@@ -22,6 +22,7 @@ pip install selenium
 pip install requests
 pip install times
 pip install mysql-connector
+pip install pandas
 ```
 
 ## Migration

@@ -23,7 +23,8 @@ isAnswering = False
 isRanking = False
 
 def getCurrentValidationStep():
-    currentStep = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]").text.split('/')[0]
+    # currentStep = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]").text.split('/')[0]
+    currentStep = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]"))).text.split('/')[0]
     if currentStep == '':
         currentStep = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[1]").text.split('/')[0].split(' ')
         currentStep = currentStep[len(currentStep)-1]
@@ -78,13 +79,15 @@ def storeWords(items):
     fp.close()
 
 def addCurrentCategoryWord(items):
-    currentCategory = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]").text
+    # currentCategory = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]").text
+    currentCategory = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h4[2]"))).text
     if currentCategory == '':
         currentCategory = driver.find_element_by_xpath("/html/body/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/div[1]/h3").text
 
     try:
         validText = driver.find_element_by_class_name("valid").text
     except:
+
         print('CAIU NO ERRO AQUI')
         return items
 
@@ -208,7 +211,7 @@ def main():
                         button = False
                     except:
                         button = True
-                time.sleep(1)
+                time.sleep(2)
                 WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.CLASS_NAME, "icon-exclamation"))).click()
             while not isValidating:
                 setIsValidating()
